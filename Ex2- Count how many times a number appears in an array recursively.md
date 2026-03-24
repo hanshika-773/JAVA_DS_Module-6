@@ -1,54 +1,57 @@
 # Ex2 Count how many times a number appears in an array recursively.
-
-## DATE : 10.11.2025  
-
-### Developed by
-**Name:** Hanshika Varthini R
-
-**Register Number:** 212223240046
-
+## DATE: 10.01.2026
 ## AIM:
-To write a Java program to count how many times a number appears in an array recursively.
+To write a Java program to Count how many times a number appears in an array recursively.
 
 ## Algorithm
-1. Start the program.  
-2. Read the number of elements and store them in an array.  
-3. Get the number to be counted from the user.  
-4. Define a recursive function `countOccurrences()` that returns how many times the number appears.  
-5. Use base and recursive conditions to count occurrences.  
-6. Display the result.  
-7. Stop the program.  
+1. Read the value of n, input n elements into array arr, and read the number key whose occurrences must be counted.
+2. Call the recursive function countOccurrences(arr, n, 0, key) starting from index 0.
+3. Inside the recursive function, check if the current index equals n;if yes, return 0 because the entire array has been checked.
+4. If arr[index] equals key, return 1 + countOccurrences(arr, n, index + 1, key);otherwise return countOccurrences(arr, n, index + 1, key).
+5. Return the final count to the main program and print how many times key appears in the array.     
 
 ## Program:
-```java
-
+```
+/*
+Program Count how many times a number appears in an array recursively.
+Developed by: Hanshika Varthini R
+RegisterNumber: 212223240046
+*/
+```
+```
 import java.util.Scanner;
-
-public class CountOccurrencesRecursive {
-    static int countOccurrences(int arr[], int n, int key) {
-        if (n == 0)
+public class CountOccurrences {
+    public static int countOccurrences(int[] arr, int n, int target) {
+        if (n == 0) {
             return 0;
-        return (arr[n - 1] == key ? 1 : 0) + countOccurrences(arr, n - 1, key);
+        }
+        if (arr[n - 1] == target) {
+            return 1 + countOccurrences(arr, n - 1, target);
+        } else {
+            return countOccurrences(arr, n - 1, target);
+        }
     }
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of elements: ");
-        int n = sc.nextInt();
-        int arr[] = new int[n];
-        System.out.println("Enter the elements:");
-        for (int i = 0; i < n; i++)
-            arr[i] = sc.nextInt();
-        System.out.print("Enter number to count: ");
-        int key = sc.nextInt();
-        System.out.println("The number " + key + " appears " + countOccurrences(arr, n, key) + " times.");
-        sc.close();
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
+        if (size <= 0) {
+            System.out.println("Invalid array size. Must be positive.");
+            return;
+        }
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        int target = scanner.nextInt();
+        int count = countOccurrences(arr, size, target);
+        System.out.println("The number " + target + " appears " + count + " time(s) in the array.");
+        scanner.close();
     }
 }
 ```
-## OUTPUT 
 
-<img width="946" height="187" alt="511954424-e41c957e-3086-42ac-bb24-f59e0d5f2411" src="https://github.com/user-attachments/assets/42af7c74-0e11-4f61-9818-95b1e917a786" />
+## Output:
+<img width="954" height="551" alt="image" src="https://github.com/user-attachments/assets/c1379b70-22fa-4bbd-bfb5-534bc8267102" />
 
-## RESULT
-Thus, the Java program to count how many times a number appears in an array recursively is implemented successfully.
+## Result:
+Thus, the Java program to Count how many times a number appears in an array recursively is implemented successfully.
