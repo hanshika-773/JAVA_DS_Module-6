@@ -3,9 +3,9 @@
 ## DATE:10.11.2025  
 
 ### Developed by
-**Name:** Shanmuga Vasanth M
+**Name:** Hanshika Varthini R
 
-**Register Number:** 212223040191 
+**Register Number:** 212223240046
 
 ## AIM:
 To write a Java function to evaluate whether Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension, and to find the nature of the resultant matrix after addition.
